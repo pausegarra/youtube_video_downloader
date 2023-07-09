@@ -1,0 +1,39 @@
+<div class="container max-w-9xl mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-2 w-full">
+    <div class="p-5">
+      <h2 class="font-bold text-2xl mb-4">{{title}}</h2>
+      <img src="{{thumbnail.url}}" alt="">
+    </div>
+    <div class="p-5">
+      <form action="/download" method="post">
+      <input type="hidden" name="video_url" value="{{this.url}}">
+        <div class="grid grid-cols-1 sm:grid-cols-2 text-center sm:text-left">
+          <div>
+            <h3 class="text-xl font-bold">Video quality</h3>
+            {{#each videoFormats}}
+            <div class="w-full">
+              <input type="radio" name="videoq" id="{{this.itag}}" value="{{this.itag}}">
+              <label for="{{this.itag}}">{{this.qualityLabel}}({{this.fps}} fps)</label>
+            </div>
+            {{/each}}
+            <div class="w-full">
+              <input type="radio" name="videoq" id="null" value="0">
+              <label for="null">Audio only</label>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mt-4 sm:mt-0">Audio quality</h3>
+            {{#each audioFormats}}
+              <div class="w-full">
+                <input type="radio" name="audioq" id="{{this.itag}}" value="{{this.itag}}">
+                <label for="{{this.itag}}">{{this.bitrate}} bitrate</label>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+        <button class="bg-[#00004c] w-full px-4 py-2 text-white rounded mt-5 text-xl hover:bg-blue-900 ease-in-out duration-200">Download</button>
+        <p class="text-sm mt-3">This process can take several minutes, depending of the video and/or audio quality</p>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{
+	"name": "20221021_ytVideoDownloader",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "Pau Segarra",
+	"license": "MIT",
+	"private": false,
+	"engines": {
+		"node": "16.x"
+	},
+	"dependencies": {
+		"body-parser": "^1.20.1",
+		"express": "^4.18.2",
+		"express-handlebars": "^6.0.6",
+		"ffmpeg-static": "^5.1.0",
+		"ytdl-core": "^4.11.2"
+	},
+	"scripts": {
+		"start": "node index.js",
+		"dev": "nodemon index.js"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.20"
+	}
+}
